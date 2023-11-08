@@ -1,0 +1,4 @@
+repository "GameBasic-@minhddph25260@cloud"
+  path "/"
+    br "/main"
+    co "/main"

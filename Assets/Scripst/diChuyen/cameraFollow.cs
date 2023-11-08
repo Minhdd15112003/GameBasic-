@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class cameraFollow : MonoBehaviour
 {
-    // Start is called before the first frame update
+    float smoothSpeed = 3;
     public Transform target;
-    public float smoothing;
     Vector3 offset;
     float lowY;
+
     void Start()
     {
         offset = transform.position - target.position;
-
+        
         lowY = transform.position.y;
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+    }
+
+    void FixedUpdate()
+    {
+        Vector3 targetCamPos = target.position + offset;
+        transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothSpeed * Time.deltaTime);
+
     }
 }
