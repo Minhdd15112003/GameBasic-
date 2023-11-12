@@ -6,6 +6,8 @@ TagManager:
   tags:
   - heart
   - NguoiChoi
+  - bac
+  - dat
   layers:
   - Default
   - TransparentFX
