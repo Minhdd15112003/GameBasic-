@@ -8,6 +8,7 @@ public class diChuyen : MonoBehaviour
     public float speed = 5f;
     public AudioSource aus;
     public AudioClip jumSound;
+    public bool isMoving;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,16 +16,23 @@ public class diChuyen : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+  public  void Update()
     {
 
         float x = Input.GetAxisRaw("Horizontal") * speed;
         float y = Input.GetAxisRaw("Vertical") * speed;
         transform.position += new Vector3(x, y, 0) * Time.deltaTime;
 
-       
-        
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (x != 0 || y != 0)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             amin.Play("runRigth");
         }
