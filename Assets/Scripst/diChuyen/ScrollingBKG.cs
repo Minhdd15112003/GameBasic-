@@ -18,6 +18,12 @@ public class ScrollingBKG : MonoBehaviour
     // Update is called once per frame
    public void Update()
     {
+        if (character != null && character.isMoving)
+        {
+            offset += Time.deltaTime * ScrollSpeed;
+            myRenderer.material.mainTextureOffset = new Vector2(offset, 0.01f);
+        }
+        
     }
 }
 
